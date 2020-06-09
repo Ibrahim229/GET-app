@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import { DataService } from '../services/data.service';
+import { Post } from '../models/post.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,10 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+  constructor(private data: DataService) {
+    this.getPosts()
+  }
+  posts: Post[] = [];
 
   refresh(ev) {
     setTimeout(() => {
@@ -15,8 +20,10 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  getPosts() {
+    this.data.getPosts().subscribe(res => {
+      this.posts = res;
+    })
   }
 
 }

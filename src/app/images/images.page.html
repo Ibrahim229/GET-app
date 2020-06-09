@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Images</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let image of userPhotos">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{image.imageTitle}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+          <ion-img style="height: 250px!important;" [src]="image.imagePath"></ion-img>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-img [src]="imageUrl"></ion-img>
+</ion-content>

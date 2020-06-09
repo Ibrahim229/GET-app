@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Message } from '../services/data.service';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-message',
@@ -7,11 +7,13 @@ import { Message } from '../services/data.service';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit {
-  @Input() message: Message;
+  @Input() post: Post;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.post)
+  }
 
   isIos() {
     const win = window as any;

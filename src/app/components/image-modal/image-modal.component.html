@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add image</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="color: mediumblue;" (click)="dismiss()">close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-img [src]="imageUrl"></ion-img>
+  <form>
+    <ion-item-divider style="margin-top: 20px !important;">
+      <ion-label position="fixed">title</ion-label>
+      <ion-input (input)="change($event)" type="text"  placeholder="add title"></ion-input>
+    </ion-item-divider>
+    <ion-button (click)="addImage()" style="margin-top: 20px !important;" expand="block">Add</ion-button>
+  </form>
+</ion-content>
